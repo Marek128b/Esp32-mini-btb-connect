@@ -5,6 +5,7 @@
   - [Description](#description)
   - [Schematic](#schematic)
   - [PCB](#pcb)
+    - [3D-Layout](#3d-layout)
   - [BOM](#bom)
 
 ## Description
@@ -16,7 +17,12 @@ ___
 ___
 
 ## PCB
-<img src="img/PCB_PCB_ESP32%20pico%20dual%20core%20mini%20btb%20connect_2022-12-20.svg" alt=" " width="50%"/> <br>
+<img src="img/PCB_PCB_ESP32%20pico%20dual%20core%20mini%20btb%20connect_2022-12-20.svg" alt="." width="50%"/>
+
+### 3D-Layout
+<img src="img\PCB-3D-top.PNG" alt="." width="50%"/>
+<img src="img\PCB-3D-bottom.PNG" alt="." width="50%"/>
+
 ___
 
 ## BOM
