@@ -9,7 +9,7 @@
   - [BOM](#bom)
 
 ## Description
-
+With this project you are able to connect one Esp32 microcontroller with internal 8MB FLASH and 2MB SRAM to any project you would like. This PCB has two onboard Buttons for Boot-mode and Resetting. It has two Power LEDs and one LED on GPIO2. It also has an adressable WS2812 RGB LED on GPIO5. The board has a 2.4GHz onboard antenna as well as an external antenna connector that can be switched between by setting one or the other GPIO to HIGH. This Project has a circuit for charching a LiPo/LiIon Battery and automatically switching between Battery and USB power.
 ___
 
 ## Schematic
