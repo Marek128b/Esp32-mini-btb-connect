@@ -8,6 +8,10 @@
     - [3D-Layout](#3d-layout)
   - [BOM](#bom)
 
+## Debugging Prozess
+**31.01.2023**: I got the First Blink Programm uploaded with an external USB to UART adapter an external Power using an AMS1117-3.3 and electrolytic capasitors. The First Problem i got was that the VS-Code with the PlatformIO plugin didn't recognize the denky_d4-ESP32-pico-V3-02 module. To fix that i had to reinstall the Espressif 32 boards from the Platforms tab, i just hit uninstall on the Espressif 32 and went to the EMBEDDED tab to search for the Espressif 32 and click install. And that fixed the Problem. The next Problem was that the Programming didn't work but that was due to a design error in the first version design of this product. i fixed that by connecting on the back side of the board the CN2 connector pins IO32 and IO33 to a 40MHz crystal and two load capacitors with a value of 12pF and a pin of the crystal to ground. <br>
+___
+
 ## Description
 With this project you are able to connect one Esp32 microcontroller with internal 8MB FLASH and 2MB SRAM to any project you would like. This PCB has two onboard Buttons for Boot-mode and Resetting. It has two Power LEDs and one LED on GPIO2. It also has an adressable WS2812 RGB LED on GPIO5. The board has a 2.4GHz onboard antenna as well as an external antenna connector that can be switched between by setting one or the other GPIO to HIGH. This Project has a circuit for charching a LiPo/LiIon Battery and automatically switching between Battery and USB power.
 ___
