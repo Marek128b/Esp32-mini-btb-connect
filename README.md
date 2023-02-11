@@ -4,6 +4,7 @@
 - [Esp32-mini-btb-connect](#esp32-mini-btb-connect)
   - [Debugging Prozess](#debugging-prozess)
     - [Debugging Checklist](#debugging-checklist)
+    - [Debugging Protocol](#debugging-protocol)
   - [Description](#description)
   - [Schematic](#schematic)
   - [PCB](#pcb)
@@ -12,8 +13,8 @@
 
 ## Debugging Prozess
 ### Debugging Checklist
-- [x] Checking chip working crystal oszillator
-- [ ] checking voltage converter 5V - 3V3
+- [x] checking chip working crystal oszillator
+- [x] checking voltage converter 5V - 3V3
 - [ ] checking power supply
 - [ ] checking usb to serial CH340E
 - [ ] testing uploading
@@ -21,7 +22,12 @@
 - [ ] testing on board LEDs PWM WS2812
 - [ ] testing battery charcher 
 
-**31.01.2023**: I got the First Blink Programm uploaded with an external USB to UART adapter an external Power using an AMS1117-3.3 and electrolytic capasitors. The First Problem i got was that the VS-Code with the PlatformIO plugin didn't recognize the denky_d4-ESP32-pico-V3-02 module. To fix that i had to reinstall the Espressif 32 boards from the Platforms tab, i just hit uninstall on the Espressif 32 and went to the EMBEDDED tab to search for the Espressif 32 and click install. And that fixed the Problem. The next Problem was that the Programming didn't work but that was due to a design error in the first version design of this product. i fixed that by connecting on the back side of the board the CN2 connector pins IO32 and IO33 to a 40MHz crystal and two load capacitors with a value of 12pF and a pin of the crystal to ground. <br>
+### Debugging Protocol
+**31.01.2023:**
+I got the First Blink Programm uploaded with an external USB to UART adapter an external Power using an AMS1117-3.3 and electrolytic capasitors. The First Problem i got was that the VS-Code with the PlatformIO plugin didn't recognize the denky_d4-ESP32-pico-V3-02 module. To fix that i had to reinstall the Espressif 32 boards from the Platforms tab, i just hit uninstall on the Espressif 32 and went to the EMBEDDED tab to search for the Espressif 32 and click install. And that fixed the Problem. The next Problem was that the Programming didn't work but that was due to a design error in the first version design of this product. i fixed that by connecting on the back side of the board the CN2 connector pins IO32 and IO33 to a 40MHz crystal and two load capacitors with a value of 12pF and a pin of the crystal to ground. <br>
+
+**02.02.2023:**
+I got the linear Dropout Regulator working now, the Error was that on the board the EN Pin was tied to GND istead of VCC (5V). This would have never aktivated the Regulator. BYP- Capacitor not strictly needed for operation but it's better to have a small 10nF capacitor connected to it and Ground.
 ___
 
 ## Description
