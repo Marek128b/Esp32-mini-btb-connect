@@ -19,7 +19,7 @@
 - [ ] checking usb to serial CH340E
 - [ ] testing uploading
 - [ ] testing WiFi and Bluetooth
-- [ ] testing on board LEDs PWM WS2812
+- [x] testing on board LEDs PWM WS2812
 - [ ] testing battery charcher 
 
 ### Debugging Protocol
@@ -27,7 +27,11 @@
 I got the First Blink Programm uploaded with an external USB to UART adapter an external Power using an AMS1117-3.3 and electrolytic capasitors. The First Problem i got was that the VS-Code with the PlatformIO plugin didn't recognize the denky_d4-ESP32-pico-V3-02 module. To fix that i had to reinstall the Espressif 32 boards from the Platforms tab, i just hit uninstall on the Espressif 32 and went to the EMBEDDED tab to search for the Espressif 32 and click install. And that fixed the Problem. The next Problem was that the Programming didn't work but that was due to a design error in the first version design of this product. i fixed that by connecting on the back side of the board the CN2 connector pins IO32 and IO33 to a 40MHz crystal and two load capacitors with a value of 12pF and a pin of the crystal to ground. <br>
 
 **02.02.2023:**
-I got the linear Dropout Regulator working now, the Error was that on the board the EN Pin was tied to GND istead of VCC (5V). This would have never aktivated the Regulator. BYP- Capacitor not strictly needed for operation but it's better to have a small 10nF capacitor connected to it and Ground.
+I got the linear Dropout Regulator working now, the Error was that on the board the EN Pin was tied to GND istead of VCC (5V). This would have never aktivated the Regulator. BYP- Capacitor not strictly needed for operation but it's better to have a small 10nF capacitor connected to it and Ground. <br>
+
+
+**18.02.2023:**
+The led test programm got uploaded using an FTDI usb to serial adapter. this also worked without the 40Mhz crystal because the esp32-pico-v3-02 chip is a SoC and therefor doesn't need an external crystal to work so i just cut the wires to the crystal. The usb uart wires had to be resoldered as they got lose and the programm wouldn't upload anymore. I wrote a tiny library for the esp which makes working without the delay() function easier. <br>
 ___
 
 ## Description
