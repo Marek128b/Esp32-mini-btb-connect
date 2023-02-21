@@ -10,6 +10,7 @@ private:
 public:
     noDelayTimer(unsigned long interval);
     void setInterval(unsigned long interval);
+    unsigned long getInterval();
     void startTimer();
     bool isTriggered();
     void stopTimer();
@@ -24,6 +25,11 @@ noDelayTimer::noDelayTimer(unsigned long interval)
 void noDelayTimer::setInterval(unsigned long interval)
 {
     this->interval = interval;
+}
+
+unsigned long noDelayTimer::getInterval()
+{
+    return interval;
 }
 
 void noDelayTimer::startTimer()
