@@ -10,6 +10,7 @@ Adafruit_NeoPixel neoPixel(1, WS2812LED, NEO_GRB + NEO_KHZ800);
 
 int ledPWM = 0;
 int stateLED = 0;
+bool led2State = false;
 noDelayTimer timer1(2000);
 noDelayTimer timer2(20);
 
@@ -42,7 +43,7 @@ void loop()
     stateLED++;
     if (stateLED > 6)
     {
-      //timer1.stopTimer();
+      // timer1.stopTimer();
       stateLED = 1;
     }
 
@@ -83,11 +84,23 @@ void loop()
   {
     // Serial.println("Timer 2 Triggered");
     ledcWrite(ledChannel, ledPWM);
-    ledPWM++;
-    if (ledPWM >= 255)
+    if (led2State)
     {
-      ledPWM = 0;
-      Serial.printf("LED reset PWM @ %ldms\r\n", millis());
+      ledPWM--;
+    }
+    else
+    {
+      ledPWM++;
+    }
+    if (ledPWM >= 255 && !led2State)
+    {
+      led2State = true;
+      Serial.printf("LED reset low PWM @ %ldms\r\n", millis());
+    }
+    else if (ledPWM <= 0 && led2State)
+    {
+      led2State = false;
+      Serial.printf("LED reset high PWM @ %ldms\r\n", millis());
     }
   }
 }
