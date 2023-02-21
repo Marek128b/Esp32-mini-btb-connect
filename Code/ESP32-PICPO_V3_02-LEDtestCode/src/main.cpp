@@ -11,7 +11,9 @@ Adafruit_NeoPixel neoPixel(1, WS2812LED, NEO_GRB + NEO_KHZ800);
 int ledPWM = 0;
 int stateLED = 0;
 bool led2State = false;
+int brightness = 0;
 noDelayTimer timer1(2000);
+noDelayTimer timer1_2(timer1.getInterval() / 250);
 noDelayTimer timer2(20);
 
 // setting PWM properties
@@ -32,6 +34,7 @@ void setup()
 
   neoPixel.begin();
   timer1.startTimer();
+  timer1_2.startTimer();
   timer2.startTimer();
 }
 
@@ -46,31 +49,36 @@ void loop()
       // timer1.stopTimer();
       stateLED = 1;
     }
+    brightness = 0;
+  }
 
+  if (timer1_2.isTriggered()) // trigger every 2000ms/200 times
+  {
+    brightness++;
     switch (stateLED)
     {
     case 1:
-      neoPixel.setPixelColor(0, neoPixel.Color(0, 0, 50));
+      neoPixel.setPixelColor(0, neoPixel.Color(0, 0, brightness));
       neoPixel.show();
       break;
     case 2:
-      neoPixel.setPixelColor(0, neoPixel.Color(0, 50, 0));
+      neoPixel.setPixelColor(0, neoPixel.Color(0, brightness, 0));
       neoPixel.show();
       break;
     case 3:
-      neoPixel.setPixelColor(0, neoPixel.Color(50, 0, 0));
+      neoPixel.setPixelColor(0, neoPixel.Color(brightness, 0, 0));
       neoPixel.show();
       break;
     case 4:
-      neoPixel.setPixelColor(0, neoPixel.Color(0, 50, 50));
+      neoPixel.setPixelColor(0, neoPixel.Color(0, brightness, brightness));
       neoPixel.show();
       break;
     case 5:
-      neoPixel.setPixelColor(0, neoPixel.Color(50, 50, 0));
+      neoPixel.setPixelColor(0, neoPixel.Color(brightness, brightness, 0));
       neoPixel.show();
       break;
     case 6:
-      neoPixel.setPixelColor(0, neoPixel.Color(50, 0, 50));
+      neoPixel.setPixelColor(0, neoPixel.Color(brightness, 0, brightness));
       neoPixel.show();
       break;
     default:
@@ -80,6 +88,7 @@ void loop()
       break;
     }
   }
+
   if (timer2.isTriggered()) // run every 20ms
   {
     // Serial.println("Timer 2 Triggered");
