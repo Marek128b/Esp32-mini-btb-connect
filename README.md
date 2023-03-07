@@ -39,11 +39,11 @@ With this project you are able to connect one Esp32 microcontroller with interna
 ___
 
 ## Schematic
-![](img/Schematic_ESP32%20pico%20dual%20core%20mini%20btb%20connect_2022-12-20.svg)
+![Schematic](img\Schematic_ESP32%20pico%20dual%20core%20mini%20btb%20connect_2023-03-07.svg)
 ___
 
 ## PCB
-<img src="img/PCB_PCB_ESP32%20pico%20dual%20core%20mini%20btb%20connect_2022-12-20.svg" alt="." width="50%"/>
+<img src="img\PCB_PCB_ESP32 pico dual core mini btb connect_2023-03-07.svg" alt="PCB" width="50%"/>
 
 ### 3D-Layout
 <img src="img\ESP32-pico-btb-connect-3D-top.png" alt="PCB Top" width="50%"/>
