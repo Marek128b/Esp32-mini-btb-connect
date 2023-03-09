@@ -1,14 +1,16 @@
-# Esp32-mini-btb-connect
+# Esp32-mini-btb-connect V1.1
 
 **table of content**
-- [Esp32-mini-btb-connect](#esp32-mini-btb-connect)
+- [Esp32-mini-btb-connect V1.1](#esp32-mini-btb-connect-v11)
   - [Debugging Prozess](#debugging-prozess)
     - [Debugging Checklist](#debugging-checklist)
     - [Debugging Protocol](#debugging-protocol)
   - [Description](#description)
   - [Schematic](#schematic)
+    - [Power-Circuit Description](#power-circuit-description)
   - [PCB](#pcb)
     - [3D-Layout](#3d-layout)
+    - [Bottom-PCB Description](#bottom-pcb-description)
     - [Pinout](#pinout)
 
 ## Debugging Prozess
@@ -39,15 +41,21 @@ With this project you are able to connect one Esp32 microcontroller with interna
 ___
 
 ## Schematic
-![Schematic](img\Schematic_ESP32%20pico%20dual%20core%20mini%20btb%20connect_2023-03-07.svg)
+![Schematic](img/Schematic_ESP32%20pico%20dual%20core%20mini%20btb%20connect_2023-03-07.svg)
+
+### Power-Circuit Description
+The power get's switched automatically using the N-Channnel MOSFET (Q3). The gate of the MOSFET gets normally pulled Low via a 10k Ohm resistor. If there is no USB voltage (+5V) the MOSFET switches the power so that the Battery Voltage (Vbat) can pass through to the Voltage Regulator which regulates it's output voltage to 3V3. If however USB Voltage (+5V) is present the MOSFET switches off and the USB Voltage goes through the Diode (D1) and proceedes to go to the Voltage Regulator.
 ___
 
 ## PCB
-<img src="img\PCB_PCB_ESP32 pico dual core mini btb connect_2023-03-07.svg" alt="PCB" width="50%"/>
+<img src="img\PCB_PCB_ESP32 pico dual core mini btb connect_2023-03-07.svg" alt="PCB" width="75%"/>
 
 ### 3D-Layout
-<img src="img\ESP32-pico-btb-connect-3D-top.png" alt="PCB Top" width="50%"/>
-<img src="img\Screenshot 2023-03-07 141211.png" alt="PCB Bottom" width="50%"/>
+<img src="img\ESP32-pico-btb-connect-3D-top.png" alt="PCB Top" width="75%"/>
+<img src="img\Screenshot 2023-03-07 141211.png" alt="PCB Bottom" width="75%"/>
+
+### Bottom-PCB Description
+The Bottom side of the PCB has 4 slim Board to Board connector's which transport USB power, 3V3 regulated voltage as well as Digital ans Analog Pin functions to any daughter board. There are some extra 1mm pads to quickly test and Programm this Mainboard using a special made programmer and test-software.
 
 ### Pinout
 
