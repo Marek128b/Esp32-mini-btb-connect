@@ -18,7 +18,7 @@
 - [x] checking chip working crystal oszillator
 - [x] checking voltage converter 5V - 3V3
 - [x] checking power supply
-- [ ] checking usb to serial CH340E
+- [x] checking usb to serial CH340E
 - [ ] testing uploading
 - [ ] testing WiFi and Bluetooth
 - [x] testing on board LEDs PWM WS2812
@@ -34,6 +34,10 @@ I got the linear Dropout Regulator working now, the Error was that on the board 
 
 **18.02.2023:**
 The led test programm got uploaded using an FTDI usb to serial adapter. this also worked without the 40Mhz crystal because the esp32-pico-v3-02 chip is a SoC and therefor doesn't need an external crystal to work so i just cut the wires to the crystal. The usb uart wires had to be resoldered as they got lose and the programm wouldn't upload anymore. I wrote a tiny library for the esp which makes working without the delay() function easier. <br>
+
+**26.03.2023:**
+After designing a CH340E usb to serial board and soldering all component's consisting of a CH340E, two capacitors, two LEDs and resistors I tested the Board and it worked, but i didn't design it quite right so I had to solder two realy small wires to the pin 4 and 5 of the CH340 I made a mistake and accidentily soldered the pin 4 to ground. After connecting the board via USB Windows detected the Board as a "USB Serial" board but not as a COM Port Serial.
+
 ___
 
 ## Description
