@@ -38,6 +38,9 @@ The led test programm got uploaded using an FTDI usb to serial adapter. this als
 **26.03.2023:**
 After designing a CH340E usb to serial board and soldering all component's consisting of a CH340E, two capacitors, two LEDs and resistors I tested the Board and it worked, but i didn't design it quite right so I had to solder two realy small wires to the pin 4 and 5 of the CH340 I made a mistake and accidentily soldered the pin 4 to ground. After connecting the board via USB Windows detected the Board as a "USB Serial" board but not as a COM Port Serial.
 
+**29.03.2023**
+After designing the new USB-C board for the CH340E which didn't work because i havn't designed the board right. Now i am going to design a USB-C board and test the board with some jumper Wires and a breadboard so i can further see what i designed wrong and after that i am going to design the USB-C board with the CH340E again.
+
 ___
 
 ## Description
